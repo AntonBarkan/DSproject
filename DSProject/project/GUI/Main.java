@@ -7,6 +7,7 @@ import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import GUI.MainScrean;
 import PeerLogic.Peer;
 
 import net.jxta.exception.PeerGroupException;

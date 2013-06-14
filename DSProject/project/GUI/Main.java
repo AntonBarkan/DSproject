@@ -1,5 +1,7 @@
 package GUI;
 
+
+
 import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.Random;
@@ -7,7 +9,6 @@ import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import GUI.MainScrean;
 import PeerLogic.Peer;
 
 import net.jxta.exception.PeerGroupException;
@@ -33,10 +34,7 @@ public class Main {
         Peer p  = new Peer(port , name );
         try {
 			p.start();
-		} catch (PeerGroupException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
+		} catch (PeerGroupException|IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -49,8 +47,6 @@ public class Main {
 		frame.pack();
 		frame.setSize(Toolkit.getDefaultToolkit().getScreenSize());
 		frame.setVisible(true);
-
-
 	}
 
 }

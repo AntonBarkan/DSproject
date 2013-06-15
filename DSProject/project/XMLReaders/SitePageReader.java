@@ -14,17 +14,28 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+import GUI.LogFrame;
+import GUI.MainScrean;
+
 public class SitePageReader extends XMLReader 
 {
-
-	public String read(String xml) throws ParserConfigurationException, SAXException, IOException 
+	private Document xml;
+	
+	public SitePageReader(Document xml)
+	{
+		this.xml = xml;
+	}
+	
+	
+	public void execute() throws ParserConfigurationException, SAXException, IOException 
 	{
 		DocumentBuilder builder  = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-		InputSource is = new InputSource(new StringReader(xml));
-		Document doc = builder.parse(is);
-		NodeList text =  doc.getElementsByTagName("site");
+//		InputSource is = new InputSource(new StringReader(xml));
+//		Document doc = builder.parse(is);
+		NodeList text =  xml.getElementsByTagName("site");
 		text = ((Element) text.item(0)).getElementsByTagName("page");
-		return text.item(0).getTextContent();
+		MainScrean.getInstance().openPage(text.item(0).getTextContent());
+        LogFrame.getInstance().toLog(text.item(0).getTextContent());
 	}
 
 

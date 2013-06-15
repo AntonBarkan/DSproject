@@ -1,6 +1,8 @@
 package PeerLogic;
 
 import XMLReaders.SitePageReader;
+import XMLReaders.XMLReader;
+import XMLReaders.XMLReadersFactory;
 import GUI.LogFrame;
 import GUI.MainScrean;
 import net.jxta.endpoint.Message;
@@ -31,10 +33,9 @@ public class PipeListener implements PipeMsgListener {
 //            {
 //            	this.peer.send_to_peer("Resived by " + this.peer.getName() , msg.getMessageElement("From").toString());
 //            }
-            SitePageReader r = new SitePageReader();
-            message = r.read(message);
-            MainScrean.getInstance().openPage(message);
-            LogFrame.getInstance().toLog(message);
+            XMLReader r = XMLReadersFactory.getReader(msg);
+             r.execute();
+            
         }
         catch (Exception e) {
             // You will notice that JXTA is not very specific with exceptions...

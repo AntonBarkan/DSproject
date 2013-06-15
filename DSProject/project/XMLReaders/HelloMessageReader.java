@@ -12,11 +12,11 @@ public class HelloMessageReader extends XMLReader {
 		// TODO Auto-generated constructor stub
 	}
 
-//	@Override
-//	public void execute() throws ParserConfigurationException, SAXException,
-//			IOException {
-//	
-//	}
+	@Override
+	public void execute() throws ParserConfigurationException, SAXException,
+			IOException {
+	
+	}
 
 	
 	

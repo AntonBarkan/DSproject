@@ -52,7 +52,9 @@ public class Discovery extends Thread {
 		}
 	}
 
-	String xml = "<site id=\"1\" modified=\"17:50 12/06/2013\" >"+
+	String xml = "<?xml version=\"1.0\"?>"+
+			"<message type=\"sitePage\">" +
+		"<site id=\"1\" modified=\"17:50 12/06/2013\" >"+
 			"<page id=\"1\" modified=\"17:50 12/06/2013\">"+
 				"<![CDATA["+
 				"<!DOCTYPE html>"+
@@ -63,6 +65,7 @@ public class Discovery extends Thread {
 				"</html>"+
 				"]]>"+
 			"</page>"+
-		"</site>";
+		"</site>"+
+			"</message>";
 
 }

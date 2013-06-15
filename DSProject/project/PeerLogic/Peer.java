@@ -50,6 +50,7 @@ public class Peer
     private PipeID unicast_id;
     private PipeID multicast_id;
     private PipeID service_id;
+    private File conf;
    // private DiscoveryService discovery;
     private ModuleSpecAdvertisement mdadv;
 
@@ -69,13 +70,15 @@ public class Peer
         // This is what you will be looking for in Wireshark instead of an IP, hint: filter by "jxta"
         peer_id = IDFactory.newPeerID(PeerGroupID.defaultNetPeerGroupID, peer_name.getBytes());
 
+        // Here the local peer cache will be saved, if you have multiple peers this must be unique
+        conf = new File("." + System.getProperty("file.separator") + "logs" + System.getProperty("file.separator") +peer_name );
 
-//         Most documentation you will find use a deprecated network manager setup, use this one instead
-//         ADHOC is usually a good starting point, other alternatives include Edge and Rendezvous
+        // Most documentation you will find use a deprecated network manager setup, use this one instead
+        // ADHOC is usually a good starting point, other alternatives include Edge and Rendezvous
         try {
             manager = new NetworkManager(
                     NetworkManager.ConfigMode.ADHOC,
-                    peer_name);
+                    peer_name, conf.toURI());
         }
         catch (IOException e) {
             // Will be thrown if you specify an invalid directory in conf

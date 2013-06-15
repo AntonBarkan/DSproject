@@ -9,26 +9,26 @@ import net.jxta.peergroup.PeerGroup;
 import net.jxta.protocol.ModuleSpecAdvertisement;
 
 public class Discovery extends Thread {
-	
+
 	private DiscoveryService discovery;
 	private Peer peer;
-	
+
 	public Discovery(PeerGroup subgroup, Peer peer){
 		this.discovery = subgroup.getDiscoveryService();
 		this.discovery = subgroup.getDiscoveryService();
 		this.peer = peer;
 		this.discovery.addDiscoveryListener(new DiscoveryListener() {
-			
+
 			public void discoveryEvent(DiscoveryEvent event) {
 				// Found another peer! Let's say hello shall we!
 		        // Reformatting to create a real peer id string
 		        String found_peer_id = "urn:jxta:" + event.getSource().toString().substring(7);
 		        Discovery.this.peer.send_to_peer(Discovery.this.xml , found_peer_id);
-				
+
 			}
 		});
 	}
-	
+
 	public void publish(ModuleSpecAdvertisement mdadv)
 	{
 		try {
@@ -51,8 +51,8 @@ public class Discovery extends Thread {
 			catch(InterruptedException e) {} 
 		}
 	}
-	
-	String xml = 			"<site id=\"1\" modified=\"17:50 12/06/2013\" >"+
+
+	String xml = "<site id=\"1\" modified=\"17:50 12/06/2013\" >"+
 			"<page id=\"1\" modified=\"17:50 12/06/2013\">"+
 				"<![CDATA["+
 				"<!DOCTYPE html>"+
@@ -64,5 +64,5 @@ public class Discovery extends Thread {
 				"]]>"+
 			"</page>"+
 		"</site>";
-	
+
 }

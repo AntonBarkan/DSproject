@@ -27,8 +27,8 @@ public class Main {
 		{
 			System.exit(-1);
 		}
-		
-		
+
+
 		int port = 9000 + new Random().nextInt(100);
         
         Peer p  = new Peer(port , name );

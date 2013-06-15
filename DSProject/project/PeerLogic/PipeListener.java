@@ -8,9 +8,9 @@ import net.jxta.pipe.PipeMsgEvent;
 import net.jxta.pipe.PipeMsgListener;
 
 public class PipeListener implements PipeMsgListener {
-	
+
 	private Peer peer;
-	
+
 	public PipeListener(Peer peer)
 	{
 		this.peer = peer;

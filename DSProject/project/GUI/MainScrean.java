@@ -33,6 +33,7 @@ public class MainScrean extends JPanel{
 	{
 		return Holder.instance;
 	}
+	
 
 	public synchronized void openPage(String html) 
 	{

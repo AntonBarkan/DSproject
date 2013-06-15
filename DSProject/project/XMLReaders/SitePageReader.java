@@ -26,7 +26,7 @@ public class SitePageReader extends XMLReader
 		text = ((Element) text.item(0)).getElementsByTagName("page");
 		return text.item(0).getTextContent();
 	}
-	
-	
+
+
 
 }

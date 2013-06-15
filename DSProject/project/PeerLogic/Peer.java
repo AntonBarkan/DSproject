@@ -38,7 +38,7 @@ public class Peer
 {
 	public static final String subgroup_name = "Test_group";
 	public static final PeerGroupID subgroup_id = IDFactory.newPeerGroupID(PeerGroupID.defaultNetPeerGroupID, subgroup_name.getBytes());
-	
+
 	private static final String unicast_name = "This must be spelled the same too";
     private static final String multicast_name = "Or else you will get the wrong PipeID";
 
@@ -52,17 +52,17 @@ public class Peer
     private PipeID service_id;
    // private DiscoveryService discovery;
     private ModuleSpecAdvertisement mdadv;
-	
-	
+
+
 	private PeerGroup subgroup;
 	private String peer_name;
 	private PeerID peer_id;
 	private NetworkManager manager;
-	
+
 	private Discovery discovery;
-	
+
 	public Peer(int port , String name) {
-		
+
         // Add a random number to make it easier to identify by name, will also make sure the ID is unique 
         peer_name = name; 
 
@@ -98,9 +98,9 @@ public class Peer
             e.printStackTrace();
         }
     }
-	
+
 	public void start() throws PeerGroupException, IOException {
-		
+
         // Launch the missiles, if you have logging on and see no exceptions
         // after this is ran, then you probably have at least the jars setup correctly.
         PeerGroup net_group = manager.startNetwork();
@@ -171,12 +171,12 @@ public class Peer
         pipe_service.createInputPipe(pipeadv);
         
     }
-	
+
 	public Discovery getDiscovery()
 	{
 		return this.discovery;
 	}
-	
+
 	  private  PipeAdvertisement get_advertisement(PipeID id, boolean is_multicast) {
 	        PipeAdvertisement adv = (PipeAdvertisement )AdvertisementFactory.
 	            newAdvertisement(PipeAdvertisement.getAdvertisementType());
@@ -193,7 +193,7 @@ public class Peer
 	        adv.setDescription("does not really matter");
 	        return adv;
 	    }
-	  
+
 	  public void send_to_peer(String message, String found_peer_id) {
 	        // This is where having the same ID is important or else we wont be
 	        // able to open a pipe and send messages
@@ -248,8 +248,8 @@ public class Peer
 	            e.printStackTrace();
 	        }
 	    }
-	  
-	  
+
+
 	  public String getName()
 	  {
 		  return this.peer_name;

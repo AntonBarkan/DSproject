@@ -198,6 +198,10 @@ public class Peer
 	    }
 
 	  public void send_to_peer(String message, String found_peer_id) {
+		  
+		  
+		  	LogFrame.getInstance().toLog("send to : " + found_peer_id);
+		  	LogFrame.getInstance().toLog("message content : " + message);
 	        // This is where having the same ID is important or else we wont be
 	        // able to open a pipe and send messages
 	        PipeAdvertisement adv = get_advertisement(unicast_id, false);

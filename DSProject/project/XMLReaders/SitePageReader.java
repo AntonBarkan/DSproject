@@ -30,8 +30,6 @@ public class SitePageReader extends XMLReader
 	public void execute() throws ParserConfigurationException, SAXException, IOException 
 	{
 		DocumentBuilder builder  = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-//		InputSource is = new InputSource(new StringReader(xml));
-//		Document doc = builder.parse(is);
 		NodeList text =  xml.getElementsByTagName("site");
 		text = ((Element) text.item(0)).getElementsByTagName("page");
 		MainScrean.getInstance().openPage(text.item(0).getTextContent());

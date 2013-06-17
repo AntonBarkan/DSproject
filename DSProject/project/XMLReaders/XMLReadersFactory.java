@@ -38,7 +38,7 @@ public class XMLReadersFactory
 				return new SitePageReader( ((Element)nodeList.item(0)).getOwnerDocument() );
 				
 			case "hello":
-				return new HelloMessageReader( nodeList.item(0).getTextContent() );
+				return new HelloMessageReader( ((Element)nodeList.item(0)).getOwnerDocument() );
 				
 			default:
 				return null;

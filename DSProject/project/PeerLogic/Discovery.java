@@ -2,6 +2,9 @@ package PeerLogic;
 
 import java.io.IOException;
 
+import XMLCreators.HelloMessageCreator;
+import XMLReaders.HelloMessageReader;
+
 import net.jxta.discovery.DiscoveryEvent;
 import net.jxta.discovery.DiscoveryListener;
 import net.jxta.discovery.DiscoveryService;
@@ -24,7 +27,7 @@ public class Discovery extends Thread {
 		        // Reformatting to create a real peer id string
 		        String found_peer_id = "urn:jxta:" + event.getSource().toString().substring(7);
 		        Discovery.this.peer.send_to_peer(Discovery.this.xml , found_peer_id);
-
+		        Discovery.this.peer.send_to_peer(HelloMessageCreator.getMessage() , found_peer_id);
 			}
 		});
 	}
